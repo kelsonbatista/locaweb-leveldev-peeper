@@ -9,3 +9,11 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 28ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 7873)
 
 
+Started GET "/" for 172.18.0.1 at 2023-11-03 02:04:24 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | Allocations: 12)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 210)
+
+
