@@ -28,7 +28,7 @@
     </div>
   <% end %>
 <% else %>
-  <strong>Edit Post</strong>
+  <strong>Edit Post </strong>
   <%= form_with(model: [@topic, @new_post], url: topic_post_path(@topic, @new_post), method: :patch) do |form| %>
     <div class="field">
       <%= form.text_area :body %>
