@@ -4,7 +4,9 @@
 <template>
   <div>
     <nav>
-      <router-link to="/hello">Hello</router-link>
+      <router-link to="/">Home</router-link> | 
+      <router-link to="/hello">Hello</router-link> | 
+      <router-link to="/myhello">My Hello</router-link>
     </nav>
     <router-view />
   </div>
