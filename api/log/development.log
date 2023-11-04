@@ -187,3 +187,26 @@ Processing by TopicsController#index as HTML
 Completed 200 OK in 471ms (Views: 433.1ms | ActiveRecord: 0.2ms | Allocations: 106578)
 
 
+Started GET "/" for 172.18.0.1 at 2023-11-04 12:13:57 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopicsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/topics/index.html.erb:6
+  Rendered topics/index.html.erb within layouts/application (Duration: 12.1ms | Allocations: 3733)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 16842)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 1.8ms | Allocations: 18398)
+
+
+Started GET "/topics/new" for 172.18.0.1 at 2023-11-04 12:14:00 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopicsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering topics/new.html.erb within layouts/application
+  Rendered topics/_form.html.erb (Duration: 9.8ms | Allocations: 2132)
+  Rendered topics/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 2418)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 4350)
+Completed 200 OK in 53ms (Views: 15.0ms | ActiveRecord: 2.1ms | Allocations: 12449)
+
+
