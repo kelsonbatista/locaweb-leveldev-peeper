@@ -22,3 +22,6 @@
 /client/*.njsproj
 /client/*.sln
 /client/*.sw?
+
+# API
+/api/tmp

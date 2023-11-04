@@ -1,0 +1,37 @@
+# See https://docs.docker.com/engine/reference/builder/#dockerignore-file for more about ignoring files.
+
+# Ignore git directory.
+/api/.git/
+
+# Ignore bundler config.
+/api/.bundle
+
+# Ignore all environment files (except templates).
+/api/.env*
+!/api/.env*.erb
+
+# Ignore all default key files.
+/api/config/master.key
+/api/config/credentials/*.key
+
+# Ignore all logfiles and tempfiles.
+/api/log/*
+/api/tmp/*
+!/api/log/.keep
+!/api/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/api/tmp/pids/*
+!/api/tmp/pids/.keep
+
+# Ignore storage (uploaded files in development and any SQLite databases).
+/api/storage/*
+!/api/storage/.keep
+/api/tmp/storage/*
+!/api/tmp/storage/.keep
+
+# Ignore assets.
+/api/node_modules/
+/api/app/assets/builds/*
+!/api/app/assets/builds/.keep
+/api/public/assets
