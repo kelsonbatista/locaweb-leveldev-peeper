@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_04_122408) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_04_132107) do
   create_table "posts", force: :cascade do |t|
     t.integer "topic_id", null: false
-    t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

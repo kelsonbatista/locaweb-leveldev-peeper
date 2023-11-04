@@ -2,6 +2,44 @@
 
 <%= render @topic %>
 
+<strong>Posts in this Topic</strong>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <div id="<%= dom_id post %>">
+      <p>
+        <%= post.body %> <%= post.id %> | 
+        <%= link_to "edit" , edit_topic_post_path(@topic, post) %> |
+        <%= link_to "delete" , topic_post_path(@topic, post), data: { turbo_method: :delete } %> |
+      </p>
+    </div>
+  <% end %>
+</div>
+
+
+<% if @new_post.new_record? %>
+  <strong>Create a New Post</strong>
+  <%= form_with(model: [@topic, @new_post], url: topic_posts_path(@topic)) do |form| %>
+    <div class="field">
+      <%= form.text_area :body %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Create Post" %>
+    </div>
+  <% end %>
+<% else %>
+  <strong>Edit Post</strong>
+  <%= form_with(model: [@topic, @new_post], url: topic_post_path(@topic, @new_post), method: :patch) do |form| %>
+    <div class="field">
+      <%= form.text_area :body %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Update Post" %>
+    </div>
+  <% end %>
+<% end %>
+
 <div>
   <%= link_to "Edit this topic", edit_topic_path(@topic) %> |
   <%= link_to "Back to topics", topics_path %>

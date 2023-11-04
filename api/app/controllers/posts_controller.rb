@@ -12,20 +12,25 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    @topic = Topic.find(params[:topic_id])
     @post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
+    @topic = Topic.find(params[:topic_id])
+    # @post = @topic.posts.find(params[:id])
   end
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    @topic = Topic.find(params[:topic_id])
+    @new_post = @topic.posts.build(post_params)
+    # @post = Post.new(post_params)
 
     respond_to do |format|
-      if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+      if @new_post.save
+        format.html { redirect_to topic_url(@topic), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,9 +41,13 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
+    @topic = Topic.find(params[:topic_id])
+    # @post = @topic.posts.find(params[:id])
+    puts "POSTSSSSSSSSSSSSSSS"
+
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
+        format.html { redirect_to topic_url(@topic), notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,12 +58,19 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-    @post.destroy!
+    @topic = Topic.find(params[:topic_id])
+    @post = @topic.posts.find(params[:id])
 
+    if @post.destroy
+      flash[:notice] = "Post deleted successfully."
+    else
+      flash[:alert] = "Error deleting the post."
+    end
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      format.html { redirect_to topic_url(@topic), notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
+    # redirect_to topic_path(@topic)
   end
 
   private
@@ -65,6 +81,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:topic_id, :title, :body)
+      params.require(:post).permit(:topic_id, :body)
     end
 end
